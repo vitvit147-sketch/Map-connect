@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Map Connect | Продвижение бизнеса на картах</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключение иконок -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Черный фон с рандомными полосками (абстрактная геометрия) */
+        body {
+            background-color: #050505;
+            background-image: 
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 35px),
+                repeating-linear-gradient(-45deg, rgba(56,189,248,0.02) 0px, rgba(56,189,248,0.02) 1px, transparent 1px, transparent 65px),
+                repeating-linear-gradient(80deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 90px);
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Голубой акцентный цвет */
+        .text-accent { color: #38bdf8; } /* light blue / sky-400 */
+        .bg-accent { background-color: #38bdf8; }
+        .border-accent { border-color: #38bdf8; }
+        
+        .glow-accent {
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+        }
+        
+        .glass-card {
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Стилизация скроллбара */
+        ::-webkit-scrollbar { width: 6px; sm:width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 4px; }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-500 selection:text-white pb-20 overflow-x-hidden">
+
+    <!-- Навигация -->
+    <nav class="fixed w-full z-50 glass-card border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="text-accent w-6 h-6 sm:w-8 sm:h-8"></i>
+                    <span class="font-bold text-xl sm:text-2xl tracking-wider">MAP<span class="text-accent">CONNECT</span></span>
+                </div>
+                <div>
+                    <a href="#tariffs" class="bg-accent text-black font-semibold px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg hover:bg-sky-400 transition-all duration-300 shadow-[0_0_15px_rgba(56,189,248,0.4)] text-sm sm:text-base">
+                        Узнать цены
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный экран -->
+    <section class="pt-28 pb-12 md:pt-32 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center relative">
+        <!-- Декоративное свечение -->
+        <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-sky-500/10 rounded-full blur-[80px] sm:blur-[100px] -z-10"></div>
+        <div class="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-sky-500/5 rounded-full blur-[120px] -z-10 hidden lg:block"></div>
+        
+        <div class="z-10 flex flex-col lg:flex-row items-center gap-10 lg:gap-8 w-full mt-4 sm:mt-0">
+            <!-- Левая колонка с текстом -->
+            <div class="lg:w-3/5 text-center lg:text-left">
+                <div class="inline-block px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border border-sky-500/30 bg-sky-500/10 text-accent font-medium text-xs sm:text-sm mb-4 sm:mb-6">
+                    Яндекс.Карты & 2ГИС
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 sm:mb-8">
+                    Поднимем ваш бизнес <br class="hidden sm:block">
+                    <span class="text-accent">в ТОП на картах</span>
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Получайте <span class="text-accent font-semibold">от 20 горячих клиентов в месяц</span> (реальные звонки, маршруты до дверей и переходы на сайт). Мы упакуем ваш профиль, оптимизируем его для поиска и заставим геосервисы работать на вашу прибыль.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
+                    <a href="#how-it-works" class="bg-accent text-black text-center font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-sky-400 transition-all text-base sm:text-lg shadow-[0_0_20px_rgba(56,189,248,0.3)]">
+                        Как это работает?
+                    </a>
+                    <a href="#cases" class="glass-card text-white text-center font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-white/10 transition-all text-base sm:text-lg border border-white/10">
+                        Смотреть результаты
+                    </a>
+                </div>
+            </div>
+
+            <!-- Правая колонка с виджетом карточки -->
+            <div class="lg:w-2/5 w-full flex justify-center lg:justify-end relative mt-6 lg:mt-0">
+                <!-- Всплывающая плашка статистики -->
+                <div class="absolute -top-4 right-0 sm:-right-4 lg:-top-6 lg:-right-8 bg-black/80 backdrop-blur-md border border-accent p-3 sm:p-4 rounded-2xl shadow-[0_0_25px_rgba(56,189,248,0.2)] z-20 animate-bounce scale-90 sm:scale-100 origin-top-right" style="animation-duration: 3s;">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <div class="bg-green-500/20 p-1.5 sm:p-2 rounded-full">
+                            <i data-lucide="trending-up" class="text-green-400 w-4 h-4 sm:w-5 sm:h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] sm:text-xs text-gray-400 leading-tight sm:leading-normal">Звонки и маршруты</p>
+                            <p class="text-base sm:text-lg font-bold text-white leading-tight sm:leading-normal">+275 за месяц</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Сама карточка-виджет -->
+                <div class="glass-card p-5 sm:p-6 rounded-3xl border border-white/10 w-full max-w-[340px] sm:max-w-[380px] shadow-2xl relative overflow-hidden transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <!-- Блик на фоне карточки -->
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-[50px]"></div>
+
+                    <!-- Шапка виджета -->
+                    <div class="flex gap-3 sm:gap-4 items-center mb-4 sm:mb-5 relative z-10">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-sky-400 to-blue-600 p-0.5 shrink-0">
+                            <div class="w-full h-full bg-[#111] rounded-full flex items-center justify-center">
+                                <i data-lucide="building-2" class="text-white w-6 h-6 sm:w-7 sm:h-7"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-1 sm:gap-1.5 leading-tight">
+                                Ваш Бизнес
+                                <i data-lucide="badge-check" class="text-accent w-4 h-4 sm:w-5 sm:h-5 shrink-0"></i>
+                            </h3>
+                            <p class="text-xs sm:text-sm text-gray-400 mt-1">Открыто до 22:00</p>
+                        </div>
+                    </div>
+
+                    <!-- Рейтинг -->
+                    <div class="flex items-center gap-2 mb-5 sm:mb-6 relative z-10">
+                        <span class="text-2xl sm:text-3xl font-extrabold text-white">5.0</span>
+                        <div class="flex text-yellow-400">
+                            <i data-lucide="star" class="w-4 h-4 sm:w-5 sm:h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 sm:w-5 sm:h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 sm:w-5 sm:h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 sm:w-5 sm:h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 sm:w-5 sm:h-5 fill-current"></i>
+                        </div>
+                        <span class="text-xs sm:text-sm text-gray-400 ml-1 underline decoration-gray-600 underline-offset-4 cursor-pointer">124 отзыва</span>
+                    </div>
+
+                    <!-- Кнопки действий -->
+                    <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-5 sm:mb-6 relative z-10">
+                        <button class="flex flex-col items-center justify-center gap-1.5 sm:gap-2 bg-accent/10 hover:bg-accent/20 border border-accent/30 p-2 sm:p-3 rounded-xl sm:rounded-2xl transition-all group">
+                            <div class="bg-accent rounded-full p-1.5 sm:p-2 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(56,189,248,0.5)] transition-all">
+                                <i data-lucide="navigation" class="text-black w-4 h-4 sm:w-5 sm:h-5"></i>
+                            </div>
+                            <span class="text-[10px] sm:text-[11px] font-bold text-accent uppercase tracking-wider">Маршрут</span>
+                        </button>
+                        <button class="flex flex-col items-center justify-center gap-1.5 sm:gap-2 bg-white/5 hover:bg-white/10 border border-white/10 p-2 sm:p-3 rounded-xl sm:rounded-2xl transition-colors group">
+                            <div class="bg-white/10 rounded-full p-1.5 sm:p-2 group-hover:scale-110 transition-transform">
+                                <i data-lucide="phone" class="text-white w-4 h-4 sm:w-5 sm:h-5"></i>
+                            </div>
+                            <span class="text-[10px] sm:text-[11px] font-medium text-gray-300 uppercase tracking-wider">Позвонить</span>
+                        </button>
+                        <button class="flex flex-col items-center justify-center gap-1.5 sm:gap-2 bg-white/5 hover:bg-white/10 border border-white/10 p-2 sm:p-3 rounded-xl sm:rounded-2xl transition-colors group">
+                            <div class="bg-white/10 rounded-full p-1.5 sm:p-2 group-hover:scale-110 transition-transform">
+                                <i data-lucide="globe" class="text-white w-4 h-4 sm:w-5 sm:h-5"></i>
+                            </div>
+                            <span class="text-[10px] sm:text-[11px] font-medium text-gray-300 uppercase tracking-wider">Сайт</span>
+                        </button>
+                    </div>
+
+                    <!-- Адрес и заглушки для фото -->
+                    <div class="space-y-3 sm:space-y-4 relative z-10">
+                        <div class="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-gray-300 bg-white/5 p-2.5 sm:p-3 rounded-xl border border-white/5">
+                            <i data-lucide="map-pin" class="w-4 h-4 sm:w-5 sm:h-5 text-accent shrink-0 mt-0.5"></i>
+                            <span>Идеально заполненная карточка с адресом и входами</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="h-14 sm:h-16 bg-gradient-to-br from-white/10 to-white/5 rounded-xl border border-white/5"></div>
+                            <div class="h-14 sm:h-16 bg-gradient-to-br from-white/10 to-white/5 rounded-xl border border-white/5"></div>
+                            <div class="h-14 sm:h-16 bg-white/5 rounded-xl border border-white/5 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+                                <span class="text-[10px] sm:text-xs font-medium text-gray-400">+12 фото</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Для кого это -->
+    <section class="py-12 md:py-20 border-t border-white/5 bg-black/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">Идеально подходит, если ваш бизнес <br class="hidden sm:block"><span class="text-accent">зависит от локации</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="glass-card p-6 sm:p-8 rounded-2xl hover:-translate-y-1 transition-transform">
+                    <i data-lucide="coffee" class="text-accent w-8 h-8 sm:w-10 sm:h-10 mb-3 sm:mb-4"></i>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Зависимы от карт</h3>
+                    <p class="text-sm sm:text-base text-gray-400">Кафе, рестораны, фитнес-центры, медицинские клиники, салоны красоты, автосервисы и шиномонтаж.</p>
+                </div>
+                <div class="glass-card p-6 sm:p-8 rounded-2xl hover:-translate-y-1 transition-transform">
+                    <i data-lucide="ban" class="text-accent w-8 h-8 sm:w-10 sm:h-10 mb-3 sm:mb-4"></i>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Сложно дать рекламу</h3>
+                    <p class="text-sm sm:text-base text-gray-400">Бары, пивные магазины, табачная тематика, вейп-шопы и магазины 18+. Карты — ваш легальный источник трафика.</p>
+                </div>
+                <div class="glass-card p-6 sm:p-8 rounded-2xl hover:-translate-y-1 transition-transform">
+                    <i data-lucide="trending-up" class="text-accent w-8 h-8 sm:w-10 sm:h-10 mb-3 sm:mb-4"></i>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Нужны дополнительные лиды</h3>
+                    <p class="text-sm sm:text-base text-gray-400">Кухни, мебель, строительство, септики, недвижимость, юристы и бухгалтеры.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Проблема конкурентов -->
+    <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="how-it-works">
+        <div class="flex flex-col lg:flex-row gap-10 md:gap-16 items-center">
+            <div class="lg:w-1/2">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Почему пустая карточка <br class="hidden lg:block"><span class="text-accent">отдает клиентов конкурентам?</span></h2>
+                <p class="text-gray-200 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
+                    Клиент ищет "салон красоты" или "доставку пиццы". Если ваша карточка не заполнена, нет прайса, плохие фото или висит старый негативный отзыв — <span class="text-accent font-semibold">человек просто уходит к конкурентам.</span>
+                </p>
+                <p class="text-gray-200 text-base sm:text-lg leading-relaxed">
+                    Просто иметь оценку "5" — недостаточно. На позицию в поиске Яндекса и решение клиента влияет грамотная SEO-настройка и "жизнь" внутри профиля.
+                </p>
+            </div>
+            <div class="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <!-- Карточка 1 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all group cursor-default">
+                    <div class="bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
+                        <i data-lucide="search" class="text-accent w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">SEO Оптимизация</h4>
+                    <p class="text-sm text-gray-300 leading-relaxed">Внедряем ключевые запросы (например, "дешевая стрижка", "заказать роллы"), чтобы вас находили не только на картах, но и в поиске.</p>
+                </div>
+                
+                <!-- Карточка 2 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all group cursor-default">
+                    <div class="bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
+                        <i data-lucide="store" class="text-accent w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">Упаковка витрины</h4>
+                    <p class="text-sm text-gray-300 leading-relaxed">Добавляем прайс-листы, услуги, цепляющие фото и акции. Клиент заранее знает цены и готов покупать.</p>
+                </div>
+                
+                <!-- Карточка 3 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all group cursor-default">
+                    <div class="bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
+                        <i data-lucide="shield-check" class="text-accent w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">Работа с репутацией</h4>
+                    <p class="text-sm text-gray-300 leading-relaxed">Грамотно отрабатываем негатив, удаляем необоснованные жалобы через техподдержку и вежливо отвечаем на позитив.</p>
+                </div>
+                
+                <!-- Карточка 4 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all group cursor-default">
+                    <div class="bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
+                        <i data-lucide="zap" class="text-accent w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">Активность (Новости)</h4>
+                    <p class="text-sm text-gray-300 leading-relaxed">Публикация новостей, сторис и акций показывает алгоритмам, что бизнес живой, поднимая вас в выдаче.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Кейсы -->
+    <section class="py-12 md:py-20 bg-black/60 border-y border-white/5 relative" id="cases">
+        <!-- Свечение для фона кейсов -->
+        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-accent/5 rounded-full blur-[80px] md:blur-[120px] -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Реальные <span class="text-accent">результаты</span></h2>
+                <p class="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">Мы работаем с различными нишами по всей России. Вот лишь часть того, что получают наши клиенты.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                
+                <!-- Кейс 1 -->
+                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Автосервис</div>
+                    <div class="mb-4">
+                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
+                        <p class="text-xs sm:text-sm text-gray-400">Профиль был завален старым негативом (оценка 3.2). Занимали 3 место по городу.</p>
+                    </div>
+                    <div class="border-t border-white/10 pt-4">
+                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
+                        <p class="text-sm sm:text-base text-white font-semibold">Выбились на 1 место.</p>
+                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Удалили необоснованный негатив (оценка выросла до 3.8). С рекламы получили 209 целевых действий (звонки, маршруты).</p>
+                    </div>
+                </div>
+
+                <!-- Кейс 2 -->
+                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Салон красоты</div>
+                    <div class="mb-4">
+                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
+                        <p class="text-xs sm:text-sm text-gray-400">13 позиция в рейтинге. Слабый поток клиентов с карт.</p>
+                    </div>
+                    <div class="border-t border-white/10 pt-4">
+                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
+                        <p class="text-sm sm:text-base text-white font-semibold">1 позиция в ТОП города.</p>
+                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Получили отметку «Хорошее место». За месяц: 3349 запросов, 275 целевых действий (звонки, переходы в ВК).</p>
+                    </div>
+                </div>
+
+                <!-- Кейс 3 -->
+                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Гостиница</div>
+                    <div class="mb-4">
+                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
+                        <p class="text-xs sm:text-sm text-gray-400">90 позиция в рейтинге по всему городу.</p>
+                    </div>
+                    <div class="border-t border-white/10 pt-4">
+                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
+                        <p class="text-sm sm:text-base text-white font-semibold">50 место без рекламного бюджета.</p>
+                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Получили отметку «Хорошее место» от Яндекса. Значительно выросло количество звонков и броней.</p>
+                    </div>
+                </div>
+
+                <!-- Кейс 4 -->
+                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Посуточная аренда</div>
+                    <div class="mb-4">
+                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
+                        <p class="text-xs sm:text-sm text-gray-400">Размещение квартиры с полного нуля.</p>
+                    </div>
+                    <div class="border-t border-white/10 pt-4">
+                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
+                        <p class="text-sm sm:text-base text-white font-semibold">4 место в рейтинге.</p>
+                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Шквал обращений: переходы в группу ВК, проложенные маршруты и звонки от арендаторов.</p>
+                    </div>
+                </div>
+
+                <!-- Кейс 5 -->
+                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Производство сеток</div>
+                    <div class="mb-4">
+                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
+                        <p class="text-xs sm:text-sm text-gray-400">Был размещен только 1 главный филиал компании.</p>
+                    </div>
+                    <div class="border-t border-white/10 pt-4">
+                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
+                        <p class="text-sm sm:text-base text-white font-semibold">Масштабирование на всю РФ.</p>
+                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Упаковали и разместили 11 филиалов в крупных городах страны на Яндексе и 2ГИС. Увеличение B2B заказов.</p>
+                    </div>
+                </div>
+
+                <!-- Кейс 6 -->
+                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Охранное предприятие</div>
+                    <div class="mb-4">
+                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
+                        <p class="text-xs sm:text-sm text-gray-400">Был размещен только 1 главный офис компании.</p>
+                    </div>
+                    <div class="border-t border-white/10 pt-4">
+                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
+                        <p class="text-sm sm:text-base text-white font-semibold">Размещение в 6 городах.</p>
+                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Получили большой поток новых лидов (звонков и заявок) на монтаж видеонаблюдения и охранные пульты.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Тарифы и Лид-магнит -->
+    <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="tariffs">
+        <div class="text-center mb-10 md:mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Выберите формат <span class="text-accent">сотрудничества</span></h2>
+            <p class="text-sm sm:text-base md:text-lg text-gray-400">Полная гарантия окупаемости инвестиций. Настроенный профиль остается с вами навсегда.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 max-w-5xl mx-auto">
+            
+            <!-- Стандартный -->
+            <div class="glass-card p-6 sm:p-8 rounded-3xl border border-white/10 hover:border-white/30 transition-all flex flex-col h-full">
+                <div class="mb-6 sm:mb-8">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2">Стандартный</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 h-auto md:h-10">Для удержания позиций, актуального состояния карточки и стабильного потока клиентов.</p>
+                </div>
+                
+                <div class="text-3xl sm:text-4xl font-extrabold mb-6 sm:mb-8">15 000 ₽ <span class="text-base sm:text-lg text-gray-500 font-normal">/ мес</span></div>
+                
+                <ul class="space-y-3 sm:space-y-4 mb-8 sm:mb-10 flex-grow text-sm sm:text-base text-gray-300">
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Создание бизнес-кабинетов (Яндекс, 2ГИС)</span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Упаковка: SEO-описание, загрузка фото</span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Оформление товаров и услуг с SEO-запросами</span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Ведение карточки: публикация "Новостей" и фото раз в 5 дней</span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Ответы на существующие и новые отзывы</span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Отчетность о результатах раз в 30 дней</span>
+                    </li>
+                </ul>
+                
+                <button class="w-full py-3.5 sm:py-4 rounded-xl border-2 border-accent text-accent font-bold hover:bg-accent hover:text-black transition-colors text-sm sm:text-base">
+                    Выбрать Стандарт
+                </button>
+            </div>
+
+            <!-- Расширенный -->
+            <div class="glass-card p-6 sm:p-8 rounded-3xl border-2 border-accent glow-accent relative flex flex-col h-full transform md:-translate-y-4 mt-6 md:mt-0">
+                <div class="absolute -top-3.5 sm:-top-4 left-1/2 -translate-x-1/2 bg-accent text-black font-bold px-3 py-1 sm:px-4 sm:py-1 rounded-full text-[10px] sm:text-sm whitespace-nowrap">
+                    Максимальный результат
+                </div>
+                
+                <div class="mb-6 sm:mb-8 mt-2">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 text-white">Расширенный + Реклама</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 h-auto md:h-10">Мощный пакет для доминирования в топе выдачи за счет органики и рекламного продвижения.</p>
+                </div>
+                
+                <div class="mb-2 text-white">
+                    <span class="text-3xl sm:text-4xl font-extrabold">23 000 ₽</span> <span class="text-base sm:text-lg text-gray-400 font-normal">/ мес*</span>
+                </div>
+                <p class="text-[11px] sm:text-xs text-accent/80 mb-6 sm:mb-8">* Рекламный бюджет Яндекса (обычно 15–50 тыс. ₽) оплачивается отдельно напрямую площадке.</p>
+                
+                <ul class="space-y-3 sm:space-y-4 mb-8 sm:mb-10 flex-grow text-sm sm:text-base text-gray-200">
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span><span class="font-bold">Всё из тарифа Стандарт</span></span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="zap" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span class="font-bold text-accent">Настройка приоритетного размещения Яндекс Бизнес</span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Оформление графических и текстовых акций в фирменном стиле</span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Настройка подмены номера для отслеживания звонков</span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Усиленная работа с репутацией: вычищение негатива через техподдержку</span>
+                    </li>
+                    <li class="flex items-start gap-2.5 sm:gap-3">
+                        <i data-lucide="check-circle-2" class="text-accent w-5 h-5 sm:w-6 sm:h-6 shrink-0 mt-0.5 sm:mt-0"></i>
+                        <span>Повышенная активность: регулярные новости и сторис</span>
+                    </li>
+                </ul>
+                
+                <button class="w-full py-3.5 sm:py-4 rounded-xl bg-accent text-black font-bold hover:bg-sky-400 transition-colors shadow-[0_0_20px_rgba(56,189,248,0.3)] text-sm sm:text-base">
+                    Выбрать Расширенный
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Блок "О нас" (Экспертность) -->
+    <section class="py-12 md:py-20 border-t border-white/5 bg-black/40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+                <!-- Фотография -->
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="relative">
+                        <!-- Декоративное свечение сзади фото -->
+                        <div class="absolute inset-0 bg-accent rounded-full blur-[40px] opacity-30"></div>
+                        <!-- Плейсхолдер. Сюда можно вставить вашу реальную фотографию -->
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400&h=400" alt="" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-white/10 relative z-10 grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+                
+                <!-- Текст -->
+                <div class="md:w-2/3 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm mb-4">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                        <span>Ваш эксперт</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Виталий Вахрушев</h2>
+                    <p class="text-gray-300 text-lg mb-6 leading-relaxed">Я и моя команда специализируемся на продвижении локального бизнеса. Мы точно знаем, как работают алгоритмы геосервисов, потому что ежедневно тестируем новые связки на десятках проектов — от салонов красоты до крупных производств.</p>
+                    <p class="text-gray-400">Мы не продаем "воздух" и непонятные метрики. Наша цель — чтобы вы получали реальные звонки и клиентов в свои двери. Поэтому всю рутину (от SEO до ответов на отзывы) мы полностью берем на себя.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок FAQ -->
+    <section class="py-12 md:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" id="faq">
+        <div class="text-center mb-10 md:mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Частые <span class="text-accent">вопросы</span></h2>
+        </div>
+        
+        <div class="space-y-4">
+            <!-- Вопрос 1 -->
+            <details class="glass-card group rounded-2xl border border-white/10 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-base sm:text-lg text-white">
+                    У меня уже рейтинг 5.0. Зачем мне продвижение?
+                    <span class="transition group-open:rotate-180 shrink-0 ml-4">
+                        <i data-lucide="chevron-down" class="text-accent"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-sm sm:text-base text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                    Оценка 5.0 не работает, если карточка висит на 15-м месте в поиске. Мы делаем так, чтобы по запросам вроде «маникюр рядом» вы показывались в ТОП-3 и забирали максимум горячих клиентов у конкурентов.
+                </div>
+            </details>
+
+            <!-- Вопрос 2 -->
+            <details class="glass-card group rounded-2xl border border-white/10 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-base sm:text-lg text-white">
+                    Как быстро я получу первых клиентов?
+                    <span class="transition group-open:rotate-180 shrink-0 ml-4">
+                        <i data-lucide="chevron-down" class="text-accent"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-sm sm:text-base text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                    Первые улучшения статистики (рост просмотров и маршрутов) видны через 2–3 недели после упаковки профиля. Стабильный поток заявок формируется ко 2-3 месяцу.
+                </div>
+            </details>
+
+            <!-- Вопрос 3 -->
+            <details class="glass-card group rounded-2xl border border-white/10 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-base sm:text-lg text-white">
+                    Бюджет на рекламу Яндекса входит в тариф за 23 000 ₽?
+                    <span class="transition group-open:rotate-180 shrink-0 ml-4">
+                        <i data-lucide="chevron-down" class="text-accent"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-sm sm:text-base text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                    Нет, 23 000 ₽ — это оплата нашей работы (ведение, упаковка, настройка кампаний и коллтрекинга). Бюджет на саму рекламу оплачивается вами отдельно напрямую в Яндекс Бизнес.
+                </div>
+            </details>
+
+            <!-- Вопрос 4 -->
+            <details class="glass-card group rounded-2xl border border-white/10 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-base sm:text-lg text-white">
+                    Вы занимаетесь накруткой отзывов?
+                    <span class="transition group-open:rotate-180 shrink-0 ml-4">
+                        <i data-lucide="chevron-down" class="text-accent"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-sm sm:text-base text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                    Нет, мы работаем только "в белую". За фейки Яндекс отправляет бизнес в теневой бан. Мы легально удаляем необоснованный негатив через техподдержку и внедряем систему, чтобы ваши реальные клиенты оставляли честные отзывы.
+                </div>
+            </details>
+
+            <!-- Вопрос 5 -->
+            <details class="glass-card group rounded-2xl border border-white/10 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-base sm:text-lg text-white">
+                    Зачем платить каждый месяц? Нельзя настроить всё один раз?
+                    <span class="transition group-open:rotate-180 shrink-0 ml-4">
+                        <i data-lucide="chevron-down" class="text-accent"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-sm sm:text-base text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                    Разовая настройка дает лишь короткий всплеск. Алгоритмы карт продвигают только «живые» профили. Мы ежемесячно публикуем новости, обновляем акции, работаем с новыми отзывами, а также работаем с рекламой, чтобы удерживать вас в ТОПе.
+                </div>
+            </details>
+
+            <!-- Вопрос 6 -->
+            <details class="glass-card group rounded-2xl border border-white/10 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-base sm:text-lg text-white">
+                    Сколько моего времени потребуется?
+                    <span class="transition group-open:rotate-180 shrink-0 ml-4">
+                        <i data-lucide="chevron-down" class="text-accent"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-sm sm:text-base text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                    Минимум. На старте мы проводим короткий бриф и запрашиваем фото. Дальше всю рутину берем на себя, а вы просто получаете клиентов и регулярные отчеты.
+                </div>
+            </details>
+
+            <!-- Вопрос 7 -->
+            <details class="glass-card group rounded-2xl border border-white/10 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer p-6 font-semibold text-base sm:text-lg text-white">
+                    Кому принадлежат доступы к Яндекс Картам и 2ГИС?
+                    <span class="transition group-open:rotate-180 shrink-0 ml-4">
+                        <i data-lucide="chevron-down" class="text-accent"></i>
+                    </span>
+                </summary>
+                <div class="p-6 pt-0 text-sm sm:text-base text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                    Все права и кабинеты принадлежат исключительно вам. Мы работаем как приглашенные администраторы. Вся настроенная система остается у вас навсегда.
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- Инициализация иконок -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
