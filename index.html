@@ -51,8 +51,14 @@
                     <i data-lucide="map-pin" class="text-accent w-6 h-6 sm:w-8 sm:h-8"></i>
                     <span class="font-bold text-xl sm:text-2xl tracking-wider">MAP<span class="text-accent">CONNECT</span></span>
                 </div>
-                <div>
-                    <a href="#tariffs" class="bg-accent text-black font-semibold px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg hover:bg-sky-400 transition-all duration-300 shadow-[0_0_15px_rgba(56,189,248,0.4)] text-sm sm:text-base">
+                <div class="flex items-center gap-5 sm:gap-8">
+                    <!-- Добавленные ссылки меню (скрыты на смартфонах для экономии места) -->
+                    <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-gray-300">
+                        <a href="#how-it-works" class="hover:text-accent transition-colors">Как это работает?</a>
+                        <a href="#cases" class="hover:text-accent transition-colors">Результаты</a>
+                        <a href="#faq" class="hover:text-accent transition-colors">Частые вопросы</a>
+                    </div>
+                    <a href="#tariffs" class="bg-accent text-black font-semibold px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg hover:bg-sky-400 transition-all duration-300 shadow-[0_0_15px_rgba(56,189,248,0.4)] text-sm sm:text-base whitespace-nowrap">
                         Узнать цены
                     </a>
                 </div>
@@ -79,12 +85,9 @@
                 <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                     Получайте <span class="text-accent font-semibold">от 20 горячих клиентов в месяц</span> (реальные звонки, маршруты до дверей и переходы на сайт). Мы упакуем ваш профиль, оптимизируем его для поиска и заставим геосервисы работать на вашу прибыль.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
-                    <a href="#how-it-works" class="bg-accent text-black text-center font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-sky-400 transition-all text-base sm:text-lg shadow-[0_0_20px_rgba(56,189,248,0.3)]">
-                        Как это работает?
-                    </a>
-                    <a href="#cases" class="glass-card text-white text-center font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl hover:bg-white/10 transition-all text-base sm:text-lg border border-white/10">
-                        Смотреть результаты
+                <div class="flex justify-center lg:justify-start">
+                    <a href="#tariffs" class="bg-accent text-black text-center font-bold px-8 py-4 rounded-xl hover:bg-sky-400 transition-all text-base sm:text-lg shadow-[0_0_20px_rgba(56,189,248,0.3)]">
+                        Выбрать тариф
                     </a>
                 </div>
             </div>
@@ -204,54 +207,47 @@
         </div>
     </section>
 
-    <!-- Проблема конкурентов -->
+    <!-- Почему накрутка не работает -->
     <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="how-it-works">
-        <div class="flex flex-col lg:flex-row gap-10 md:gap-16 items-center">
-            <div class="lg:w-1/2">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Почему пустая карточка <br class="hidden lg:block"><span class="text-accent">отдает клиентов конкурентам?</span></h2>
-                <p class="text-gray-200 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
-                    Клиент ищет "салон красоты" или "доставку пиццы". Если ваша карточка не заполнена, нет прайса, плохие фото или висит старый негативный отзыв — <span class="text-accent font-semibold">человек просто уходит к конкурентам.</span>
-                </p>
-                <p class="text-gray-200 text-base sm:text-lg leading-relaxed">
-                    Просто иметь оценку "5" — недостаточно. На позицию в поиске Яндекса и решение клиента влияет грамотная SEO-настройка и "жизнь" внутри профиля.
+        <div class="text-center mb-10 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Почему накрутка больше не работает?</h2>
+            <p class="text-gray-400 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                Клиенты видят фальшь, а алгоритмы жестко банят за покупные оценки. На позицию в выдаче и решение клиента прийти к вам влияют <span class="text-accent font-semibold">три реальные вещи</span>.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            <!-- Карточка 1 -->
+            <div class="glass-card p-6 md:p-8 rounded-[1.5rem] border border-white/5 hover:border-white/10 transition-colors group">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-white/10 bg-white/5 group-hover:bg-white/10 transition-colors">
+                    <i data-lucide="search" class="text-accent w-6 h-6"></i>
+                </div>
+                <h4 class="font-bold text-xl mb-4 text-white">1. Правильная SEO-<br>упаковка</h4>
+                <p class="text-sm md:text-base text-gray-400 leading-relaxed">
+                    Вас находят не только по названию, но и по целевым запросам: <span class="text-white font-semibold">«дешевая стрижка»</span>, <span class="text-white font-semibold">«заказать роллы»</span>, <span class="text-white font-semibold">«ремонт ходовой»</span>. Мы внедряем ключи в товары, услуги и ответы.
                 </p>
             </div>
-            <div class="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <!-- Карточка 1 -->
-                <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all group cursor-default">
-                    <div class="bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
-                        <i data-lucide="search" class="text-accent w-5 h-5"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">SEO Оптимизация</h4>
-                    <p class="text-sm text-gray-300 leading-relaxed">Внедряем ключевые запросы (например, "дешевая стрижка", "заказать роллы"), чтобы вас находили не только на картах, но и в поиске.</p>
+            
+            <!-- Карточка 2 -->
+            <div class="glass-card p-6 md:p-8 rounded-[1.5rem] border border-white/5 hover:border-white/10 transition-colors group">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-white/10 bg-white/5 group-hover:bg-white/10 transition-colors">
+                    <i data-lucide="message-square-heart" class="text-accent w-6 h-6"></i>
                 </div>
-                
-                <!-- Карточка 2 -->
-                <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all group cursor-default">
-                    <div class="bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
-                        <i data-lucide="store" class="text-accent w-5 h-5"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">Упаковка витрины</h4>
-                    <p class="text-sm text-gray-300 leading-relaxed">Добавляем прайс-листы, услуги, цепляющие фото и акции. Клиент заранее знает цены и готов покупать.</p>
+                <h4 class="font-bold text-xl mb-4 text-white">2. Работа с репутацией</h4>
+                <p class="text-sm md:text-base text-gray-400 leading-relaxed">
+                    Грамотные ответы на отзывы (как позитивные, так и негативные). <span class="text-accent font-medium">Мы продаем ваши услуги тем, кто читает ответы</span>, и внедряем легальный сбор оценок от реальных гостей.
+                </p>
+            </div>
+            
+            <!-- Карточка 3 -->
+            <div class="glass-card p-6 md:p-8 rounded-[1.5rem] border border-white/5 hover:border-white/10 transition-colors group">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-white/10 bg-white/5 group-hover:bg-white/10 transition-colors">
+                    <i data-lucide="activity" class="text-accent w-6 h-6"></i>
                 </div>
-                
-                <!-- Карточка 3 -->
-                <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all group cursor-default">
-                    <div class="bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
-                        <i data-lucide="shield-check" class="text-accent w-5 h-5"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">Работа с репутацией</h4>
-                    <p class="text-sm text-gray-300 leading-relaxed">Грамотно отрабатываем негатив, удаляем необоснованные жалобы через техподдержку и вежливо отвечаем на позитив.</p>
-                </div>
-                
-                <!-- Карточка 4 -->
-                <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent/60 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all group cursor-default">
-                    <div class="bg-accent/10 w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
-                        <i data-lucide="zap" class="text-accent w-5 h-5"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">Активность (Новости)</h4>
-                    <p class="text-sm text-gray-300 leading-relaxed">Публикация новостей, сторис и акций показывает алгоритмам, что бизнес живой, поднимая вас в выдаче.</p>
-                </div>
+                <h4 class="font-bold text-xl mb-4 text-white">3. Активность в профиле</h4>
+                <p class="text-sm md:text-base text-gray-400 leading-relaxed">
+                    Алгоритмы любят живые карточки. Мы обеспечиваем <span class="text-accent font-medium">регулярные обновления</span> фотографий, публикацию историй, актуализацию прайса и акций компании.
+                </p>
             </div>
         </div>
     </section>
@@ -263,93 +259,105 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-10 md:mb-16">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Реальные <span class="text-accent">результаты</span></h2>
-                <p class="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">Мы работаем с различными нишами по всей России. Вот лишь часть того, что получают наши клиенты.</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 flex items-center justify-center gap-3 md:gap-4">
+                    🏆 Наши результаты
+                </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 max-w-6xl mx-auto">
                 
-                <!-- Кейс 1 -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Автосервис</div>
-                    <div class="mb-4">
-                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
-                        <p class="text-xs sm:text-sm text-gray-400">Профиль был завален старым негативом (оценка 3.2). Занимали 3 место по городу.</p>
-                    </div>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
-                        <p class="text-sm sm:text-base text-white font-semibold">Выбились на 1 место.</p>
-                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Удалили необоснованный негатив (оценка выросла до 3.8). С рекламы получили 209 целевых действий (звонки, маршруты).</p>
-                    </div>
-                </div>
-
-                <!-- Кейс 2 -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Салон красоты</div>
-                    <div class="mb-4">
-                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
-                        <p class="text-xs sm:text-sm text-gray-400">13 позиция в рейтинге. Слабый поток клиентов с карт.</p>
-                    </div>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
-                        <p class="text-sm sm:text-base text-white font-semibold">1 позиция в ТОП города.</p>
-                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Получили отметку «Хорошее место». За месяц: 3349 запросов, 275 целевых действий (звонки, переходы в ВК).</p>
+                <!-- Кейс 1: Москва -->
+                <div class="glass-card p-6 md:p-8 rounded-[1.5rem] relative overflow-hidden group border border-white/5 hover:border-white/10 transition-colors">
+                    <i data-lucide="sparkles" class="absolute -top-6 -right-6 w-40 h-40 text-white/[0.03] group-hover:text-white/[0.06] transition-colors transform rotate-12 pointer-events-none"></i>
+                    <div class="relative z-10">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3">Салон красоты (г. Москва)</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-orange-500/10 text-orange-500 border border-orange-500/20">Высокая конкуренция</span>
+                        </div>
+                        <div class="space-y-4 text-sm md:text-base text-gray-300 leading-relaxed">
+                            <p><span class="font-bold text-white">Проблема:</span> Затерялись на 30+ позициях из-за огромного количества конкурентов в районе.</p>
+                            <p><span class="font-bold text-white">Решение:</span> Внедрили гиперлокальное СЕО (запросы по району и услугам), переупаковали витрину и подключили рекламу на подготовленную карточку.</p>
+                            <p><span class="font-bold text-white">Результат:</span> Вошли в <span class="text-accent font-semibold">ТОП-3</span> по своему району. Стабильно получают от <span class="text-accent font-semibold">450 целевых действий</span> (маршруты и звонки) ежемесячно.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Кейс 3 -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Гостиница</div>
-                    <div class="mb-4">
-                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
-                        <p class="text-xs sm:text-sm text-gray-400">90 позиция в рейтинге по всему городу.</p>
-                    </div>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
-                        <p class="text-sm sm:text-base text-white font-semibold">50 место без рекламного бюджета.</p>
-                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Получили отметку «Хорошее место» от Яндекса. Значительно выросло количество звонков и броней.</p>
-                    </div>
-                </div>
-
-                <!-- Кейс 4 -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Посуточная аренда</div>
-                    <div class="mb-4">
-                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
-                        <p class="text-xs sm:text-sm text-gray-400">Размещение квартиры с полного нуля.</p>
-                    </div>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
-                        <p class="text-sm sm:text-base text-white font-semibold">4 место в рейтинге.</p>
-                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Шквал обращений: переходы в группу ВК, проложенные маршруты и звонки от арендаторов.</p>
+                <!-- Кейс 2: Чебоксары -->
+                <div class="glass-card p-6 md:p-8 rounded-[1.5rem] relative overflow-hidden group border border-white/5 hover:border-white/10 transition-colors">
+                    <i data-lucide="scissors" class="absolute -top-6 -right-6 w-40 h-40 text-white/[0.03] group-hover:text-white/[0.06] transition-colors transform rotate-12 pointer-events-none"></i>
+                    <div class="relative z-10">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3">Салон красоты (г. Чебоксары)</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-red-500/10 text-red-400 border border-red-500/20">Яндекс Карты</span>
+                            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-green-500/10 text-green-400 border border-green-500/20">2ГИС</span>
+                        </div>
+                        <div class="space-y-4 text-sm md:text-base text-gray-300 leading-relaxed">
+                            <p><span class="font-bold text-white">Что сделали:</span> Оформили профиль под СЕО-запросы, заполнили услуги, внедрили отработку репутации.</p>
+                            <p><span class="font-bold text-white">Результат:</span> <span class="text-accent font-semibold">275 целевых действий</span> органически с Яндекса + 96 с 2ГИС. Итого: <span class="text-accent font-semibold">371 действие</span> (звонки, маршруты) за месяц.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Кейс 5 -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Производство сеток</div>
-                    <div class="mb-4">
-                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
-                        <p class="text-xs sm:text-sm text-gray-400">Был размещен только 1 главный филиал компании.</p>
-                    </div>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
-                        <p class="text-sm sm:text-base text-white font-semibold">Масштабирование на всю РФ.</p>
-                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Упаковали и разместили 11 филиалов в крупных городах страны на Яндексе и 2ГИС. Увеличение B2B заказов.</p>
+                <!-- Кейс 3: Автосервис -->
+                <div class="glass-card p-6 md:p-8 rounded-[1.5rem] relative overflow-hidden group border border-white/5 hover:border-white/10 transition-colors">
+                    <i data-lucide="wrench" class="absolute -top-6 -right-6 w-40 h-40 text-white/[0.03] group-hover:text-white/[0.06] transition-colors transform -rotate-12 pointer-events-none"></i>
+                    <div class="relative z-10">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3">Автосервис</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">Выход из кризиса</span>
+                        </div>
+                        <div class="space-y-4 text-sm md:text-base text-gray-300 leading-relaxed">
+                            <p><span class="font-bold text-white">Проблема:</span> Профиль был завален старым негативом (оценка 3.2), 3-е место по городу.</p>
+                            <p><span class="font-bold text-white">Решение:</span> Удалили необоснованный негатив через саппорт, упаковали карточку, запустили рекламу.</p>
+                            <p><span class="font-bold text-white">Результат:</span> Выбились на <span class="text-accent font-semibold">1 место</span> и получили <span class="text-accent font-semibold">209 целевых действий</span> (стабильный поток звонков).</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Кейс 6 -->
-                <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 bg-accent text-black font-bold px-3 py-1 rounded-bl-xl text-[10px] sm:text-xs z-10">Охранное предприятие</div>
-                    <div class="mb-4">
-                        <div class="text-xs sm:text-sm font-bold text-red-400 mb-1">Было:</div>
-                        <p class="text-xs sm:text-sm text-gray-400">Был размещен только 1 главный офис компании.</p>
+                <!-- Кейс 4: Масштабирование -->
+                <div class="glass-card p-6 md:p-8 rounded-[1.5rem] relative overflow-hidden group border border-white/5 hover:border-white/10 transition-colors">
+                    <i data-lucide="network" class="absolute -top-6 -right-6 w-40 h-40 text-white/[0.03] group-hover:text-white/[0.06] transition-colors transform rotate-12 pointer-events-none"></i>
+                    <div class="relative z-10">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3">Масштабирование сетей</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">ЧОП</span>
+                            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">Спортивные сетки</span>
+                        </div>
+                        <div class="space-y-4 text-sm md:text-base text-gray-300 leading-relaxed">
+                            <p><span class="font-bold text-white">Результат:</span> Помогли бизнесам вырасти из 1 филиала в сети по <span class="text-accent font-semibold">6-11 городов</span> на картах. ЧОП получил стабильный поток B2B-заявок на пультовую охрану и монтаж систем.</p>
+                        </div>
                     </div>
-                    <div class="border-t border-white/10 pt-4">
-                        <div class="text-xs sm:text-sm font-bold text-accent mb-1">Стало:</div>
-                        <p class="text-sm sm:text-base text-white font-semibold">Размещение в 6 городах.</p>
-                        <p class="text-xs sm:text-sm text-gray-300 mt-1">Получили большой поток новых лидов (звонков и заявок) на монтаж видеонаблюдения и охранные пульты.</p>
+                </div>
+
+                <!-- Кейс 5: Гостиница -->
+                <div class="glass-card p-6 md:p-8 rounded-[1.5rem] relative overflow-hidden group border border-white/5 hover:border-white/10 transition-colors">
+                    <i data-lucide="building" class="absolute -top-6 -right-6 w-40 h-40 text-white/[0.03] group-hover:text-white/[0.06] transition-colors transform rotate-12 pointer-events-none"></i>
+                    <div class="relative z-10">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3">Гостиница</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-yellow-500/10 text-yellow-500 border border-yellow-500/20">Без бюджета</span>
+                        </div>
+                        <div class="space-y-4 text-sm md:text-base text-gray-300 leading-relaxed">
+                            <p><span class="font-bold text-white">Проблема:</span> Занимали 90-ю позицию в рейтинге по всему городу, теряя органический трафик.</p>
+                            <p><span class="font-bold text-white">Решение:</span> СЕО-оптимизация услуг профиля, грамотная проработка отзывов.</p>
+                            <p><span class="font-bold text-white">Результат:</span> Вышли на <span class="text-accent font-semibold">50 место</span> без рекламного бюджета. Получили отметку «Хорошее место» и кратный рост броней.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кейс 6: Аренда -->
+                <div class="glass-card p-6 md:p-8 rounded-[1.5rem] relative overflow-hidden group border border-white/5 hover:border-white/10 transition-colors">
+                    <i data-lucide="key" class="absolute -top-6 -right-6 w-40 h-40 text-white/[0.03] group-hover:text-white/[0.06] transition-colors transform -rotate-12 pointer-events-none"></i>
+                    <div class="relative z-10">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-3">Посуточная аренда</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded text-[11px] font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/20">Запуск с нуля</span>
+                        </div>
+                        <div class="space-y-4 text-sm md:text-base text-gray-300 leading-relaxed">
+                            <p><span class="font-bold text-white">Проблема:</span> Размещение новой квартиры на картах с полного нуля (без отзывов и рейтинга).</p>
+                            <p><span class="font-bold text-white">Решение:</span> Правильная стартовая упаковка профиля и полное СЕО-продвижение.</p>
+                            <p><span class="font-bold text-white">Результат:</span> Вышли на <span class="text-accent font-semibold">4 место</span> в рейтинге. Получили шквал целевых действий: переходы в ВК, маршруты и звонки.</p>
+                        </div>
                     </div>
                 </div>
 
