@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Наши Кейсы | Map Connect</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cases-page-header {
+            padding-top: 150px;
+            padding-bottom: 60px;
+            text-align: center;
+        }
+        .full-case-card {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-bottom: 60px;
+            padding: 40px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(15,15,15,0.9), rgba(5,5,5,0.9));
+            border: 1px solid var(--border-card);
+        }
+        .full-case-card:hover { border-color: rgba(56, 189, 248, 0.3); }
+        .full-case-card img {
+            width: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+        }
+        .full-case-card img:hover {
+            transform: scale(1.02);
+        }
+        
+        .full-case-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-height: 800px;
+            overflow-y: auto;
+            padding-right: 12px;
+        }
+        /* Кастомный скроллбар для картинок */
+        .full-case-images::-webkit-scrollbar { width: 6px; }
+        .full-case-images::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 3px;}
+        .full-case-images::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+        @media (min-width: 1024px) {
+            .full-case-card {
+                flex-direction: row;
+                align-items: stretch;
+            }
+            .full-case-content {
+                flex: 1;
+                position: sticky;
+                top: 100px;
+                height: fit-content;
+            }
+            .full-case-images {
+                flex: 1.2;
+            }
+        }
+        
+        .result-highlight {
+            padding: 16px;
+            background: rgba(56, 189, 248, 0.1);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            margin-top: 24px;
+        }
+        .result-highlight p { color: #fff; font-weight: 500; font-size: 16px; margin:0;}
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar glass">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+                    <i data-lucide="map-pin" class="text-accent"></i>
+                    <span class="logo-text">MAP<span class="text-accent">CONNECT</span></span>
+                </a>
+            </div>
+            <div class="nav-links hidden-mobile">
+                <a href="index.html#how-it-works">Как мы работаем</a>
+                <a href="cases.html" class="text-accent text-shadow">Кейсы</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <header class="cases-page-header">
+        <div class="decor-glow decor-left"></div>
+        <div class="container relative z-10">
+            <div class="badge">Наше Портфолио</div>
+            <h1 class="hero-title">Доказываем на <span class="text-accent">цифрах</span></h1>
+            <p class="hero-subtitle mx-auto">8 реальных историй роста бизнесов на картах: от небольших салонов до федеральных сетей. Полная прозрачность и скриншоты статистики.</p>
+        </div>
+    </header>
+
+    <!-- Список кейсов -->
+    <section class="section pt-0 relative z-10">
+        <div class="container mx-auto">
+            
+            <!-- 1. Большой кейс салона красоты -->
+            <div class="card glass full-case-card">
+                <div class="full-case-content">
+                    <h3 class="card-title text-accent">Масштабный рост салона красоты</h3>
+                    <div class="tags"><span class="tag tag-orange">Супер-кейс</span> <span class="tag tag-blue">С нуля</span> <span class="tag tag-purple">CRM</span></div>
+                    <div class="case-body mt-lg" style="margin-top: 24px;">
+                        <p><strong>Метрика "До":</strong> Профиль вообще не существовал, никто из соцсетей не приходил, 0 клиентов с гео-поиска.</p>
+                        <p><strong>Что сделано:</strong> Регистрация на всех сервисах, мощная SEO-оптимизация (внедрение ключевиков в карточки услуг), интеграция с системой записи Yclients. Подключили WhatsApp-бота для возврата и авторассылок, настроили эффективную рекламу Яндекса.</p>
+                        <div class="result-highlight">
+                            <p><strong>Результат:</strong> Более 100 новых клиентов за месяц с рекламным бюджетом всего 6 тыс. руб. и 3625+ горячих поисковых запросов!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-case-images">
+                    <img src="case-1/1.jpg" alt="Скриншот статистики">
+                    <img src="case-1/2.jpg" alt="Скриншот статистики">
+                    <img src="case-1/3.jpg" alt="Скриншот статистики">
+                </div>
+            </div>
+
+            <!-- 2. Автосервис -->
+            <div class="card glass full-case-card">
+                <div class="full-case-content">
+                    <h3 class="card-title text-accent">Вывод автосервиса из кризиса</h3>
+                    <div class="tags"><span class="tag tag-red">Яндекс Карты</span> <span class="tag tag-orange">Отработка негатива</span></div>
+                    <div class="case-body mt-lg" style="margin-top: 24px;">
+                        <p><strong>Метрика "До":</strong> Профиль завален негативными отзывами (оценка 3.2), слабая 3-я позиция по городу.</p>
+                        <p><strong>Что сделано:</strong> Удалили необоснованный негатив, упаковали карточку по всем канонам СЕО, запустили приоритетное размещение и подключили рекламу профиля.</p>
+                        <div class="result-highlight">
+                            <p><strong>Результат:</strong> Захватили львиную долю рынка. Высокая позиция в локальной выдаче (стрелка вверх) и резкий рост рейтинга!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-case-images">
+                    <img src="case-2/1.jpg" alt="Статистика 1">
+                    <img src="case-2/2.jpg" alt="Статистика 2">
+                    <img src="case-2/3.jpg" alt="Статистика 3">
+                </div>
+            </div>
+
+            <!-- 3. Квартира в аренду -->
+            <div class="card glass full-case-card">
+                <div class="full-case-content">
+                    <h3 class="card-title text-accent">Неоновая квартира (Посуточная аренда)</h3>
+                    <div class="tags"><span class="tag tag-green">B2C</span> <span class="tag tag-blue">С нуля</span> <span class="tag tag-purple">Трафик на ВК</span></div>
+                    <div class="case-body mt-lg" style="margin-top: 24px;">
+                        <p><strong>Метрика "До":</strong> Отсутствие профиля в картах, нет стабильного канала броней.</p>
+                        <p><strong>Что сделано:</strong> Создали стильную карточку с нуля, загрузили фотогалерею и настроили связку с группой ВКонтакте.</p>
+                        <div class="result-highlight">
+                            <p><strong>Результат:</strong> +616% переходов в профиль, 2426 кликов по карточке. Клиенты массово переходят в ВК (+1254%), звонят (+2550%) и прокладывают маршруты (+3200%). Уверенное 4 место в рейтинге.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-case-images">
+                    <img src="case-4/PaPs60mRh66_lF7Ez3-y3aJZUKwzzd7iD80XyWQmODEj1qFf9lrAVBNH2rU4-8YYJnLamSD0BXKexAeqvRGdFg9a.jpg" alt="Скриншот локации">
+                    <img src="case-4/a2PSj31n2_7qqVbMup6bAcDjIuMB5s4AxCZ0FbejTJyOl2WO6OzSBIqQkLvkqWnbqHETBNUQE_uKkkN8xj5siCEZ.jpg" alt="Переходы и график">
+                </div>
+            </div>
+            
+            <!-- 4. Гостиница (Отель) -->
+            <div class="card glass full-case-card">
+                <div class="full-case-content">
+                    <h3 class="card-title text-accent">Гостиница (г. Екатеринбург)</h3>
+                    <div class="tags"><span class="tag tag-blue">Отель</span> <span class="tag tag-green">SEO</span></div>
+                    <div class="case-body mt-lg" style="margin-top: 24px;">
+                        <p><strong>Метрика "До":</strong> Профиль болтался на 90-й позиции в городе, теряя всех потенциальных постояльцев.</p>
+                        <p><strong>Что сделано:</strong> Удалена/отработана масса негатива, прописано SEO (товары, услуги, ключи в отзывах). Работа с фотоматериалами и размещение информации на Яндекс.Кью для перелива трафика.</p>
+                        <div class="result-highlight">
+                            <p><strong>Результат:</strong> Подпрыгнули с 90-го на 50-е место БЕЗ копейки вложений в рекламу! Заслужили статус от Яндекса «Хорошее место».</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-case-images">
+                    <img src="case-3/mesto.jpg" alt="Отметка Хорошее Место">
+                    <img src="case-3/98vO98yaHV4dV_TDpFSoDPNbmlN8J74oC_mXB9kZyJtW6A9Z7qkkyXRZ-JM47l_OvSARjlDS8yL-q71h_2GmDaJT.jpg" alt="Статистика отеля">
+                    <img src="case-3/gjebROehEm9BbbI-39ba_jtU6exUZDfMHBYJffpd6f_pnc9YKdUdkvNUo_cXEQF6-F0ryrLN-ReI7SZOHKgKDR4T.jpg" alt="Отель графики">
+                </div>
+            </div>
+
+            <!-- 5. Салон Цветов -->
+            <div class="card glass full-case-card">
+                <div class="full-case-content">
+                    <h3 class="card-title text-accent">Салон цветов (г. Екатеринбург)</h3>
+                    <div class="tags"><span class="tag tag-red">Яндекс Карты</span> <span class="tag tag-green">Высокая конкуренция</span></div>
+                    <div class="case-body mt-lg" style="margin-top: 24px;">
+                        <p><strong>Метрика "До":</strong> 4-е позиция, незаполненный профиль, неактуальная информация об услугах и цветах.</p>
+                        <p><strong>Что сделано:</strong> Выполнили сверхточную упаковку, прописали SEO-товары для цветочных композиций под событийные запросы («Цветы на 8 марта», «Свадебный букет»).</p>
+                        <div class="result-highlight">
+                            <p><strong>Результат:</strong> Забрали 1 МЕСТО (40% трафика района!). Получили награду «Хорошее место» от Яндекса. Статистика в радиусе 5 км: сотни переходов.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-case-images">
+                    <img src="case-6/59kb1iwaMngcXhOb2pU0yi43kSqABIIJ3pHqwEl6qs3WbXLysuNH_jcb_ggTOrVI4lgynkuVkRhuhBlbnMzqZg4A.jpg" alt="Статистика салона цветов 1">
+                    <img src="case-6/D0uJ17vsWQoiZ_kUpiTASf40Gjs4ZClT6LZxYV6cRKvRIyLXD158dPHKj4dCatIV_Ay-IgNaWwZO1Rlv1q2T87-m.jpg" alt="Статистика салона цветов 2">
+                    <img src="case-6/dZttrxDPr1zI0rEQrzpXcjVlOi1pqnEibPD3D0eK5qQ9u12ctUMErjka3PhAXc5qI3cF-cjXpsBjHlV4-Cosje_6.jpg" alt="Статистика салона цветов 3">
+                </div>
+            </div>
+
+            <!-- 6. Салон Красоты (Меньший кейс) -->
+            <div class="card glass full-case-card">
+                <div class="full-case-content">
+                    <h3 class="card-title text-accent">Beauty studio N.O.</h3>
+                    <div class="tags"><span class="tag tag-red">Яндекс Карты</span> <span class="tag tag-blue">Репутация</span></div>
+                    <div class="case-body mt-lg" style="margin-top: 24px;">
+                        <p><strong>Что сделано:</strong> Улучшили репутационный фон студии. Акцент на живые отзывы, создание правильного впечатления на Яндекс.Картах посредством визуального оформления (132+ фотографий интерьера и работ).</p>
+                        <div class="result-highlight">
+                            <p><strong>Результат:</strong> 4.8 рейтинг (22 отзыва на момент среза). Присуждение награды «Хорошее место».</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-case-images">
+                    <img src="case-5/hormesto.jpg" alt="Хорошее место N.O.">
+                    <img src="case-5/posle.jpg" alt="Статистика N.O. 1">
+                    <img src="case-5/dcxIzxDEl5pfFYF1Nyk1ZXDkwCC5GEMbPGQAuoSqA95yJnGtnA5ObjwJ_SBsGjSwqXCrCLpIxXyLQjb0CluqhlhO.jpg" alt="Статистика N.O. 2">
+                </div>
+            </div>
+
+            <!-- 7. B2B: Крупная сеть по производству спортивных сеток -->
+            <div class="card glass full-case-card">
+                <div class="full-case-content">
+                    <h3 class="card-title text-accent">Производство спортивных сеток (Sezus)</h3>
+                    <div class="tags"><span class="tag tag-purple">B2B Сеть</span> <span class="tag tag-orange">Масштабирование</span></div>
+                    <div class="case-body mt-lg" style="margin-top: 24px;">
+                        <p><strong>Метрика "До":</strong> В картографических сервисах размещен только 1 физический филиал (головной офис).</p>
+                        <p><strong>Что сделано:</strong> Создание виртуальных и фактических точек присутствия по всей России. Прохождение жесткой модерации 2ГИС и Яндекса.</p>
+                        <div class="result-highlight">
+                            <p><strong>Результат:</strong> Захват выдачи в 11 крупных городах страны. Стабильный поток оптовых заказов и звонков от B2B партнеров сразу с 11 независимых карточек!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-case-images">
+                    <img src="case-7/1.jpg" alt="Статистика сети">
+                </div>
+            </div>
+            
+            <!-- 8. ЧОП (Охранное предприятие) -->
+            <div class="card glass full-case-card">
+                <div class="full-case-content">
+                    <h3 class="card-title text-accent">Частное охранное предприятие (Бастион)</h3>
+                    <div class="tags"><span class="tag tag-purple">B2B Сеть</span> <span class="tag tag-blue">Сложная ниша</span></div>
+                    <div class="case-body mt-lg" style="margin-top: 24px;">
+                        <p><strong>Метрика "До":</strong> Размещен только 1 охранный филиал (главный офис), скудный трафик из других зон.</p>
+                        <p><strong>Что сделано:</strong> Массивное расширение: зарегистрировали филиалы для покрытия всей целевой зоны. Проработали номенклатуры (пожарные системы, монтаж пультов и др.).</p>
+                        <div class="result-highlight">
+                            <p><strong>Результат:</strong> Активное присутствие в 6 городах (от Уральска до Краснотурьинска). Генерируются крупные лиды на монтаж видеонаблюдения и охрану пультов для корпоративных клиентов.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-case-images">
+                    <img src="case-8/1.jpg" alt="Статистика ЧОП">
+                    <img src="case-8/FnjYTWqOal9E2gmKUlA2kRX6PVO5UY6NLVJFLtO_od0bCnszNXBZxoktVhkUYYyoZccbrR9hkP_l7JneEJJyflva.jpg" alt="Статистика ЧОП 2">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer border-top section-dark" style="padding: 40px 0;">
+        <div class="container text-center mx-auto relative z-10">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Map Connect. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Декоративные и скриптовые эелементы -->
+    <div class="decor-glow" style="bottom: -200px; right: -200px; width: 600px; height: 600px; background: rgba(56, 189, 248, 0.05); filter: blur(150px); z-index: 0; pointer-events: none;"></div>
+    
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
