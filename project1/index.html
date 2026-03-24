@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Map Connect | Продвижение бизнеса на картах</title>
+    <!-- Иконки Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Фоновая геометрия (через CSS) -->
+    
+    <!-- Навигация -->
+    <nav class="navbar glass">
+        <div class="container nav-container">
+            <div class="logo">
+                <i data-lucide="map-pin" class="text-accent"></i>
+                <span class="logo-text">MAP<span class="text-accent">CONNECT</span></span>
+            </div>
+            <div class="nav-links hidden-mobile">
+                <a href="#how-it-works">Как мы работаем</a>
+                <a href="cases.html">Кейсы</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный экран -->
+    <header class="hero">
+        <div class="decor-glow decor-left"></div>
+        <div class="decor-glow decor-right hidden-mobile"></div>
+        
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge">Яндекс.Карты & 2ГИС</div>
+                <h1 class="hero-title">Приводим от 20 до 300<br/> <span class="text-accent">горячих клиентов</span> в месяц</h1>
+                <p class="hero-subtitle">Без накруток и риска бана. Выводим компанию в ТОП с помощью белого SEO, управления репутацией и знания алгоритмов геосервисов.</p>
+                <div class="hero-actions">
+                    <a href="cases.html" class="btn btn-ghost lg-btn">Смотреть кейсы со скриншотами</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <!-- Всплывающий бейдж с результатами -->
+                <div class="stat-badge glass badge-bounce">
+                    <div class="stat-icon bg-green-dim"><i data-lucide="trending-up" class="text-green"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Звонки и маршруты</span>
+                        <strong class="stat-value">+275 за месяц</strong>
+                    </div>
+                </div>
+
+                <!-- Виджет (Карточка) -->
+                <div class="widget glass widget-tilt">
+                    <div class="widget-glow"></div>
+                    
+                    <div class="w-header">
+                        <div class="w-avatar">
+                            <div class="w-avatar-inner"><i data-lucide="building-2"></i></div>
+                        </div>
+                        <div class="w-title-wrap">
+                            <h3 class="w-title">Ваш Бизнес <i data-lucide="badge-check" class="text-accent verified-icon"></i></h3>
+                            <p class="w-status">Открыто до 22:00</p>
+                        </div>
+                    </div>
+
+                    <div class="w-rating">
+                        <span class="w-score">5.0</span>
+                        <div class="w-stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
+                        <span class="w-reviews">124 отзыва</span>
+                    </div>
+
+                    <div class="w-actions">
+                        <button class="w-btn btn-route">
+                            <div class="w-icon-wrap bg-accent text-dark"><i data-lucide="navigation"></i></div>
+                            <span>Маршрут</span>
+                        </button>
+                        <button class="w-btn">
+                            <div class="w-icon-wrap bg-white-dim text-white"><i data-lucide="phone"></i></div>
+                            <span>Позвонить</span>
+                        </button>
+                        <button class="w-btn">
+                            <div class="w-icon-wrap bg-white-dim text-white"><i data-lucide="globe"></i></div>
+                            <span>Сайт</span>
+                        </button>
+                    </div>
+
+                    <div class="w-footer">
+                        <div class="w-address">
+                            <i data-lucide="map-pin" class="text-accent"></i>
+                            <span>Идеально заполненная карточка с адресом</span>
+                        </div>
+                        <div class="w-gallery">
+                            <div class="w-photo"></div>
+                            <div class="w-photo"></div>
+                            <div class="w-photo w-more"><span>+12 фото</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Кому подходит -->
+    <section class="section section-dark" id="audience">
+        <div class="container border-top pt-xl">
+            <h2 class="section-title text-center">Идеально подходит, если ваш бизнес <br class="hidden-mobile"><span class="text-accent">зависит от локации</span></h2>
+            
+            <div class="grid-3 mt-lg">
+                <div class="card glass card-hover-up">
+                    <i data-lucide="coffee" class="card-icon text-accent"></i>
+                    <h3 class="card-title">Локальный бизнес</h3>
+                    <p class="card-text">Кафе, рестораны, фитнес-центры, СТО, клиники, салоны красоты и шиномонтаж.</p>
+                </div>
+                <div class="card glass card-hover-up">
+                    <i data-lucide="ban" class="card-icon text-accent"></i>
+                    <h3 class="card-title">Сложно дать рекламу</h3>
+                    <p class="card-text">Бары, пивные магазины, табачная тематика, вейпы. Карты — ваш легальный источник трафика.</p>
+                </div>
+                <div class="card glass card-hover-up">
+                    <i data-lucide="trending-up" class="card-icon text-accent"></i>
+                    <h3 class="card-title">Высокая конкуренция</h3>
+                    <p class="card-text">Строительство, навесы, мебель, септики, недвижимость, услуги юристов и бухгалтеров.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Почему накрутка не работает -->
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <div class="section-header text-center mx-auto max-w-lg">
+                <h2 class="section-title">Почему накрутка отзывов <span class="text-danger">убивает бизнес?</span></h2>
+                <p class="section-subtitle">Алгоритмы штрафуют за фальшь, а клиенты ей не верят. На вашу позицию в поиске Яндекса влияют три реальные вещи:</p>
+            </div>
+
+            <div class="grid-cards mt-lg">
+                <div class="card glass card-outline group-hover-glow">
+                    <div class="icon-square"><i data-lucide="search" class="text-accent"></i></div>
+                    <h4 class="card-title">1. Правильная SEO-упаковка</h4>
+                    <p class="card-text">Вас находят по запросам: <strong class="text-white">«дешевая стрижка»</strong>, <strong class="text-white">«заказать роллы»</strong>. Мы внедряем ключи в товары, прайс и ответы, чтобы вы ранжировались выше.</p>
+                </div>
+                
+                <div class="card glass card-outline group-hover-glow">
+                    <div class="icon-square"><i data-lucide="message-square-heart" class="text-accent"></i></div>
+                    <h4 class="card-title">2. Работа с репутацией</h4>
+                    <p class="card-text">Продаем ваши услуги даже в ответах на негатив. Внедряем легальный сбор оценок от <span class="text-accent font-medium">реальных гостей</span> (Тейбл-тенты, NFC-метки, скрипты).</p>
+                </div>
+                
+                <div class="card glass card-outline group-hover-glow">
+                    <div class="icon-square"><i data-lucide="activity" class="text-accent"></i></div>
+                    <h4 class="card-title">3. Активность в профиле</h4>
+                    <p class="card-text">Алгоритмы любят живые компании. Мы обеспечиваем <span class="text-accent font-medium">регулярные релизы</span> историй, новостей и акций, что дает буст в выдаче.</p>
+                </div>
+
+                <div class="card glass card-outline group-hover-glow">
+                    <div class="icon-square"><i data-lucide="zap" class="text-accent"></i></div>
+                    <h4 class="card-title">4. Настройка приоритетного размещения</h4>
+                    <p class="card-text">Используем все платные инструменты: настраиваем рекламные объявления, оформляем стильные акции и заполняем витрину товаров для максимальной конверсии.</p>
+                </div>
+
+                <div class="card glass card-outline group-hover-glow">
+                    <div class="icon-square"><i data-lucide="bar-chart-3" class="text-accent"></i></div>
+                    <h4 class="card-title">5. Прозрачная отчетность</h4>
+                    <p class="card-text">Никаких метрик "для галочки". Мы предоставляем понятные и прозрачные отчеты о проделанной работе и результатах от <span class="text-accent font-medium">2-ух раз за месяц</span>.</p>
+                </div>
+
+                <div class="card glass card-outline group-hover-glow">
+                    <div class="icon-square"><i data-lucide="file-signature" class="text-accent"></i></div>
+                    <h4 class="card-title">6. Работа по договору</h4>
+                    <p class="card-text">Мы ценим безопасность и доверие клиентов. Наше сотрудничество полностью прозрачно — <span class="text-accent font-medium">все обязательства фиксируются в договоре</span>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Кейсы -->
+    <section class="section cases-section" id="cases">
+        <!-- Свечение для фона -->
+        <div class="decor-glow decor-cases"></div>
+
+        <div class="container relative z-10">
+            <h2 class="section-title text-center">🏆 Наши результаты</h2>
+            
+            <div class="grid-2 cases-grid mt-lg">
+                <!-- Case 1 -->
+                <div class="card glass case-card">
+                    <i data-lucide="sparkles" class="bg-icon"></i>
+                    <h3 class="card-title">Салон красоты (г. Москва)</h3>
+                    <div class="tags"><span class="tag tag-orange">Высокая конкуренция</span></div>
+                    <div class="case-body">
+                        <p><strong>Проблема:</strong> Затерялись на 30+ позициях.</p>
+                        <p><strong>Решение:</strong> Внедрили гиперлокальное СЕО и запустили рекламу.</p>
+                        <p><strong>Результат:</strong> ТОП района. <strong class="text-accent">+450 целевых действий</strong> ежемесячно.</p>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="card glass case-card">
+                    <i data-lucide="scissors" class="bg-icon"></i>
+                    <h3 class="card-title">Салон красоты (г. Чебоксары)</h3>
+                    <div class="tags">
+                       <span class="tag tag-red">Яндекс Карты</span>
+                       <span class="tag tag-green">2ГИС</span>
+                    </div>
+                    <div class="case-body">
+                        <p><strong>Что сделали:</strong> Оформили профиль под СЕО-запросы, отработали репутацию.</p>
+                        <p><strong>Результат:</strong> 275 с Яндекса + 96 с 2ГИС. Итого: <strong class="text-accent">371 действие</strong> (звонки, маршруты) за месяц.</p>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="card glass case-card">
+                    <i data-lucide="wrench" class="bg-icon"></i>
+                    <h3 class="card-title">Автосервис</h3>
+                    <div class="tags"><span class="tag tag-blue">Выход из кризиса</span></div>
+                    <div class="case-body">
+                        <p><strong>Проблема:</strong> Профиль был завален негативом (оценка 3.2), 3-е место по городу.</p>
+                        <p><strong>Решение:</strong> Удалили необоснованный негатив, упаковали карточку.</p>
+                        <p><strong>Результат:</strong> <strong class="text-accent">1 место</strong> и 209 целевых действий в месяц.</p>
+                    </div>
+                </div>
+
+                <!-- Case 4 -->
+                <div class="card glass case-card">
+                    <i data-lucide="network" class="bg-icon"></i>
+                    <h3 class="card-title">Масштабирование сетей</h3>
+                    <div class="tags"><span class="tag tag-purple">B2B</span></div>
+                    <div class="case-body">
+                        <p><strong>Результат:</strong> Помогли бизнесам (ЧОП и спорт-сети) вырасти из 1 филиала в сети по <strong class="text-accent">6-11 городов</strong> на картах. Стабильный поток заявок.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-lg" style="margin-top: 40px;">
+                <a href="cases.html" class="btn btn-primary lg-btn">Посмотреть портфолио и скриншоты</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Тарифы -->
+    <section class="section section-dark pt-xl border-top" id="tariffs">
+        <div class="container">
+            <h2 class="section-title text-center">Формат <span class="text-accent">сотрудничества</span></h2>
+            <p class="section-subtitle text-center">Полная гарантия окупаемости инвестиций. Настроенный профиль остается с вами навсегда.</p>
+            
+            <div class="grid-2 tariff-grid mt-lg mx-auto max-w-lg">
+                <!-- Стандартный -->
+                <div class="card glass pricing-card">
+                    <div class="pricing-header">
+                        <h3>Стандартный</h3>
+                        <p class="text-muted">Закрываем потери клиентов и настраиваем поток</p>
+                    </div>
+                    <div class="price">
+                        <span class="price-val">15 000 ₽</span> <span class="price-period">/ мес</span>
+                    </div>
+                    <p class="price-note visibility-hidden">* Бюджет Яндекса оплачивается вами отдельно</p>
+                    <ul class="features-list">
+                        <li class="f-item"><i data-lucide="check-circle-2" class="text-accent"></i> <span>Защита профиля (настройка бизнес-кабинетов по стандартам Яндекса).</span></li>
+                        <li class="f-item"><i data-lucide="check-circle-2" class="text-accent"></i> <span>Вывод в топ выдачи за счет SEO-оптимизации прайса и услуг.</span></li>
+                        <li class="f-item"><i data-lucide="check-circle-2" class="text-accent"></i> <span>Оформление визуала (фото, новости), чтобы клиент не ушел к конкурентам.</span></li>
+                        <li class="f-item"><i data-lucide="check-circle-2" class="text-accent"></i> <span>Удержание аудитории через правильную работу с отзывами.</span></li>
+                        <li class="f-item"><i data-lucide="check-circle-2" class="text-accent"></i> <span>Отчетность раз в 30 дней.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Расширенный -->
+                <div class="card glass pricing-card pricing-featured glow-accent">
+                    <div class="featured-badge">Максимальный результат</div>
+                    <div class="pricing-header">
+                        <h3>Расширенный + Реклама</h3>
+                        <p class="text-muted">Агрессивный захват заявок в вашем районе</p>
+                    </div>
+                    <div class="price">
+                        <span class="price-val">23 000 ₽</span> <span class="price-period">/ мес</span>
+                    </div>
+                    <p class="price-note">* Бюджет на рекламу оплачивается Яндексу напрямую</p>
+                    <ul class="features-list featured-list">
+                        <li class="f-item"><i data-lucide="check-circle-2" class="text-accent"></i> <strong>Всё из тарифа «Стандарт».</strong></li>
+                        <li class="f-item"><i data-lucide="zap" class="text-accent"></i> <strong>Запуск платного приоритетного размещения (Настройка Яндекс Бизнеса).</strong></li>
+                        <li class="f-item"><i data-lucide="check-circle-2" class="text-accent"></i> <span>Продающие графические витрины и баннеры с акциями.</span></li>
+                        <li class="f-item"><i data-lucide="check-circle-2" class="text-accent"></i> <span>Сложная работа с техподдержкой по удалению негативных отзывов.</span></li>
+                        <li class="f-item"><i data-lucide="check-circle-2" class="text-accent"></i> <span>Колл-трекинг (подмена номера) для прозрачного учета всех звонков.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container max-w-lg mx-auto">
+            <h2 class="section-title text-center">Частые <span class="text-accent">вопросы</span></h2>
+            
+            <div class="faq-list mt-lg">
+                <details class="faq-item glass">
+                    <summary>У меня уже рейтинг 5.0. Зачем мне продвижение? <i data-lucide="chevron-down" class="faq-icon"></i></summary>
+                    <div class="faq-content">
+                        Оценка 5.0 не работает, если карточка висит на 15-м месте в поиске. Мы делаем так, чтобы по запросам вроде «маникюр рядом» вы показывались в ТОП-3 и забирали максимум горячих клиентов у конкурентов.
+                    </div>
+                </details>
+
+                <details class="faq-item glass">
+                    <summary>Как быстро я получу первых клиентов? <i data-lucide="chevron-down" class="faq-icon"></i></summary>
+                    <div class="faq-content">
+                        Первые улучшения статистики видны через 2–3 недели после упаковки профиля. Стабильный поток заявок формируется ко 2-3 месяцу.
+                    </div>
+                </details>
+
+                <details class="faq-item glass">
+                    <summary>Вы занимаетесь накруткой отзывов? <i data-lucide="chevron-down" class="faq-icon"></i></summary>
+                    <div class="faq-content">
+                        Нет, мы работаем только "в белую". За фейки Яндекс отправляет бизнес в теневой бан. Мы легально удаляем необоснованный негатив через техподдержку и внедряем инструменты для сбора оценок от реальных клиентов.
+                    </div>
+                </details>
+                
+                <details class="faq-item glass">
+                    <summary>Кому принадлежат доступы к Яндекс Картам и 2ГИС? <i data-lucide="chevron-down" class="faq-icon"></i></summary>
+                    <div class="faq-content">
+                        Все права и кабинеты принадлежат исключительно вам. Мы работаем как приглашенные администраторы. Вся настроенная система остается у вас навсегда.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer border-top section-dark" style="padding: 40px 0;">
+        <div class="container text-center max-w-lg mx-auto">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Map Connect. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
